@@ -20,9 +20,28 @@ namespace Kassa___ryhmat66
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<LisaSeeToode> items;
         public MainWindow()
         {
             InitializeComponent();
+            items = new List<LisaSeeToode>();
+            
+
+            items.Add(new LisaSeeToode() { Nimi = "aferg", Hind = 7, Kogus = 1 });
+            TootedListBox.ItemsSource = items;
+        }
+
+        private void LisaToode_Click(object sender, RoutedEventArgs e)
+        {
+            items.Add(new LisaSeeToode() { Nimi = TooteNimi.Text, Hind = int.Parse(TooteHind.Text), Kogus = int.Parse(TooteKogus.Text) });
+            TootedListBox.ItemsSource = items;
+        }
+
+        public class LisaSeeToode
+        {
+            public string Nimi;
+            public int Hind;
+            public int Kogus;
         }
     }
 }

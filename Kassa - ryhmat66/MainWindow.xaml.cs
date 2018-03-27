@@ -35,6 +35,9 @@ namespace Kassa___ryhmat66
         {
             items.Add(new LisaSeeToode() { Nimi = TooteNimi.Text, Hind = int.Parse(TooteHind.Text), Kogus = int.Parse(TooteKogus.Text) });
             TootedListBox.ItemsSource = items;
+            string message = string.Format("Listis on nüüd: " + TooteNimi.Text + "; Hind: " + TooteHind.Text + " € Kogus: " + TooteKogus.Text);
+
+            MessageBox.Show(message);
         }
 
         public class LisaSeeToode

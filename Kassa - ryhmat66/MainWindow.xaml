@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="423.544" Width="619.811">
     <Grid>
-        <ListBox x:Name="TootedListBox" Margin="0,0,239,0">
+        <ListBox x:Name="TootedListBox" Margin="0,0,239,0" SelectionChanged="TootedListBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,2">

@@ -24,33 +24,17 @@ namespace Kassa___ryhmat66
         public MainWindow()
         {
             InitializeComponent();
-            //List<LisaSeeToode> items = new List<LisaSeeToode>();
-            
-
-            //items.Add(new LisaSeeToode() { Nimi = "Piim", Hind = 45, Kogus = 10 });
-
-            //items.Add(new LisaSeeToode() { Nimi = "Perenaise Sai", Hind = 80, Kogus = 12 });
-
-            //items.Add(new LisaSeeToode() { Nimi = "Kange Walter", Hind = 100, Kogus = 5 });
-
-            //items.Add(new LisaSeeToode() { Nimi = "Lotte Limonaad", Hind = 10, Kogus = 8 });
-
-            //items.Add(new LisaSeeToode() { Nimi = "Maasikad", Hind = 40, Kogus = 30 });
-
-            //TootedListBox.ItemsSource = items;
-
-            //TootedListBox.ItemsSource = items;
-
-            //items.Add(new LisaSeeToode() { Nimi = "aferg", Hind = 7, Kogus = 1 });
-            //TootedListBox.ItemsSource = items;
         }
 
         private void LisaToode_Click(object sender, RoutedEventArgs e)
         {
-            //List<LisaSeeToode> items = new List<LisaSeeToode>();
+
             items.Add(new LisaSeeToode() { Nimi = TooteNimi.Text, Hind = int.Parse(TooteHind.Text), Kogus = int.Parse(TooteKogus.Text) });
             TootedListBox.ItemsSource = items;
+            string message = string.Format("Listis on nüüd: " + TooteNimi.Text + "; Hind: " + TooteHind.Text + " € Kogus: " + TooteKogus.Text);
+            MessageBox.Show(message);
             TootedListBox.Items.Refresh();
+
         }
 
        

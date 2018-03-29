@@ -8,36 +8,22 @@
         Title="MainWindow" Height="423.544" Width="619.811">
     <Grid Margin="10">
         <ListBox Name="TootedListBox" HorizontalAlignment="Left" Width="348" SelectionMode="Multiple" Margin="0,20,0,0">
-
             <ListBox.ItemTemplate>
-
                 <DataTemplate>
-
                     <Grid Margin="0,2">
-
                         <Grid.ColumnDefinitions>
-
                             <ColumnDefinition Width="150"/>
-
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="50"/>
                             <ColumnDefinition Width="50"/>
-
                         </Grid.ColumnDefinitions>
-
                         <TextBlock  Grid.Column="0" Text="{Binding Nimi}"/>
-
                         <ProgressBar Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding Kogus}"/>
                         <TextBlock Grid.Column="2" Text="{Binding Kogus}"/>
                         <TextBlock Grid.Column="3" Text="{Binding Hind}"/>
-
-
                     </Grid>
-
                 </DataTemplate>
-
             </ListBox.ItemTemplate>
-
         </ListBox>
         <Button x:Name="LisaToode" Content="Lisa toode" HorizontalAlignment="Left" Margin="398,67,0,0" VerticalAlignment="Top" Width="159" Height="24" Click="LisaToode_Click"/>
         <TextBox x:Name="TooteNimi" HorizontalAlignment="Left" Height="20" Margin="366,20,0,0" TextWrapping="Wrap" Text="Toote nimi" VerticalAlignment="Top" Width="112"/>
@@ -48,6 +34,5 @@
         <Label x:Name="label2" Content="Toote kogus/100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,-6,0,0" Width="100"/>
         <Label x:Name="label3" Content="Kogus" HorizontalAlignment="Left" Margin="250,-6,0,0" VerticalAlignment="Top" Width="50"/>
         <Label x:Name="label4" Content="Hind" HorizontalAlignment="Left" Margin="300,-6,0,0" VerticalAlignment="Top" Width="48"/>
-
     </Grid>
 </Window>

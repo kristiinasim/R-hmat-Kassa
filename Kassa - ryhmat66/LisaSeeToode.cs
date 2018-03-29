@@ -2,8 +2,8 @@
 {
     public class LisaSeeToode
     {
-        public string Nimi;
-        public int Hind;
-        public int Kogus;
+        public string Nimi { get; set; }
+        public int Hind { get; set; }
+        public int Kogus { get; set; }
     }
 }

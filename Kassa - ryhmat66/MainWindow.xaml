@@ -6,14 +6,13 @@
         xmlns:local="clr-namespace:Kassa___ryhmat66"
         mc:Ignorable="d"
         Title="MainWindow" Height="423.544" Width="619.811">
-<<<<<<< HEAD
-    <Grid>
-        <ListBox x:Name="TootedListBox" Margin="0,0,239,0" SelectionChanged="TootedListBox_SelectionChanged">
-=======
+
+
+
     <Grid Margin="10">
         <ListBox Name="TootedListBox" HorizontalAlignment="Left" Width="348" SelectionMode="Multiple">
 
->>>>>>> master
+
             <ListBox.ItemTemplate>
 
                 <DataTemplate>

@@ -10,7 +10,7 @@
 
 
     <Grid Margin="10">
-        <ListBox Name="TootedListBox" HorizontalAlignment="Left" Width="348" SelectionMode="Multiple">
+        <ListBox Name="TootedListBox" HorizontalAlignment="Left" Width="348" SelectionMode="Multiple" SelectionChanged="TootedListBox_SelectionChanged_1">
 
 
             <ListBox.ItemTemplate>
@@ -30,6 +30,7 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock  Grid.Column="0" Text="{Binding Nimi}"/>
+                        
 
                         <ProgressBar Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding Hind}"/>
                         <TextBlock Grid.Column="2" Text="{Binding Hind}"/>
@@ -48,6 +49,8 @@
         <TextBox x:Name="TooteHind" HorizontalAlignment="Left" Height="20" Margin="509,20,0,0" TextWrapping="Wrap" Text="Hind" VerticalAlignment="Top" Width="35" RenderTransformOrigin="-0.337,0.485"/>
         <TextBox x:Name="TooteKogus" HorizontalAlignment="Left" Height="20" Margin="549,20,0,0" TextWrapping="Wrap" Text="Kogus" VerticalAlignment="Top" Width="54"/>
         <Label x:Name="label" Content="Vajuta lisamiseks!" HorizontalAlignment="Left" Margin="455,40,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="0.558,0.184" Visibility="Visible"/>
+        <Button Content="Vaata ostukorvi" HorizontalAlignment="Left" Height="31" Margin="436,200,0,0" VerticalAlignment="Top" Width="135"/>
+        <Button Content="Lisa toode ostukorvi" HorizontalAlignment="Left" Height="26" Margin="436,140,0,0" VerticalAlignment="Top" Width="135" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

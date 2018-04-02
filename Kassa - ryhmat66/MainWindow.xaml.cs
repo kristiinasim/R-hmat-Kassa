@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Kassa___ryhmat66
 {
@@ -20,6 +21,9 @@ namespace Kassa___ryhmat66
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static string path = @"C:\Users\Krizzie\Documents\GitHub\Ryhmat66-Kassa\Tooted.txt";
+
+
         List<LisaSeeToode> items = new List<LisaSeeToode>();
         public MainWindow()
         {
@@ -60,11 +64,46 @@ namespace Kassa___ryhmat66
 
         }
 
-       
 
         private void TootedListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void TootedListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+         
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+                if (TootedListBox.SelectedItems != null)
+                {
+                    foreach (var item in TootedListBox.SelectedItems)
+                    {
+                    var text = TootedListBox.SelectedValue.ToString();
+                    File.AppendAllText(path, text);
+                    
+                }
+              
+            }
+            }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (TootedListBox.SelectedItems != null)
+            {
+                foreach (var item in TootedListBox.SelectedItems)
+                {
+                    var text = TootedListBox.SelectedValue.ToString();
+                    File.AppendAllText(path, text);
+                    //File.AppendAllText(path, TooteNimi.Text);
+
+                }
+
+            }
         }
     }
 }

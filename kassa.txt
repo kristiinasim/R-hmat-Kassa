@@ -1,7 +1,7 @@
 Ostukorvis on: 
-Toote nimi: asdfg Toote hind: 7€ Toote kogus: 1
-Kogu summa on: 7€
-Toote nimi: asdfg Toote hind: 7€ Toote kogus: 1
-Kogu summa on: 14€
-Toote nimi: asdfg Toote hind: 7€ Toote kogus: 1
-Kogu summa on: 21€
+Toote nimi: jvhjgbherik Toote hind: 6€ Toote kogus: 1
+Kogu summa on: 6€
+Toote nimi: jvhjgbherik Toote hind: 6€ Toote kogus: 1
+Kogu summa on: 12€
+Toote nimi: jvhjgbherik Toote hind: 6€ Toote kogus: 1
+Kogu summa on: 18€

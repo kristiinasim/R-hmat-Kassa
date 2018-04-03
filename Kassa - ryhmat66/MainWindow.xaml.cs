@@ -32,16 +32,29 @@ namespace Kassa___ryhmat66
             File.Delete(path);
             string tekst = "Ostukorvis on: ";
             File.AppendAllText(path, tekst);
+            path = @"..\..\..\list.txt";
         }
 
         private void LisaToode_Click(object sender, RoutedEventArgs e)
         {
-            //if (TooteNimi.Text != null && TooteHind.Text != null && TooteHind != )
-            items.Add(new LisaSeeToode() { Nimi = TooteNimi.Text, Hind = int.Parse(TooteHind.Text), Kogus = int.Parse(TooteKogus.Text) });
-            TootedListBox.ItemsSource = items;
-            string message = string.Format("Listis on nüüd: " + TooteNimi.Text + "; Hind: " + TooteHind.Text + " € Kogus: " + TooteKogus.Text);
-            MessageBox.Show(message);
-            TootedListBox.Items.Refresh();
+            int n;
+            bool HindIsNumeric = int.TryParse(TooteHind.Text, out n);
+            bool KogusIsNumeric = int.TryParse(TooteKogus.Text, out n);
+            if (TooteNimi.Text != null && TooteHind.Text != null && HindIsNumeric == true 
+                && TooteKogus.Text != null && KogusIsNumeric == true)
+            {
+                items.Add(new LisaSeeToode() { Nimi = TooteNimi.Text, Hind = int.Parse(TooteHind.Text), Kogus = int.Parse(TooteKogus.Text) });
+                TootedListBox.ItemsSource = items;
+                string message = string.Format("Listis on nüüd: " + TooteNimi.Text + "; Hind: " + TooteHind.Text + " € Kogus: " + TooteKogus.Text);
+                MessageBox.Show(message);
+                TootedListBox.Items.Refresh();
+            }
+            else
+            {
+                string errormessage = "Palun täida kõik lahtrid õigesti";
+                MessageBox.Show(errormessage);
+            }
+                
 
         }
 

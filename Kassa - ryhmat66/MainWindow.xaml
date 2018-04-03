@@ -45,5 +45,6 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+        <Label x:Name="label5" Content="Ainult numbrid!" HorizontalAlignment="Left" Margin="483,0,-36,0" VerticalAlignment="Top" Height="30" Width="145"/>
     </Grid>
 </Window>

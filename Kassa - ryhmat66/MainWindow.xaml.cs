@@ -62,6 +62,7 @@ namespace Kassa___ryhmat66
                 int Summa = Algmaksumus += ToodeteKoguHind;
                 string KoguSumma = System.Environment.NewLine + "Kogu summa on: " + Summa + "€";
                 File.AppendAllText(path, KoguSumma);
+                MessageBox.Show("Toode on lisatud ostukorvi!");
             }
         }
 

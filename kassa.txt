@@ -1,0 +1,7 @@
+Ostukorvis on: 
+Toote nimi: asdfg Toote hind: 7€ Toote kogus: 1
+Kogu summa on: 7€
+Toote nimi: asdfg Toote hind: 7€ Toote kogus: 1
+Kogu summa on: 14€
+Toote nimi: asdfg Toote hind: 7€ Toote kogus: 1
+Kogu summa on: 21€

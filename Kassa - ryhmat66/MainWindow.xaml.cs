@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,10 +22,16 @@ namespace Kassa___ryhmat66
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string path;
+        public int Algmaksumus = 0;
         List<LisaSeeToode> items = new List<LisaSeeToode>();
         public MainWindow()
         {
             InitializeComponent();
+            path = @"..\..\..\kassa.txt";
+            File.Delete(path);
+            string tekst = "Ostukorvis on: ";
+            File.AppendAllText(path, tekst);
         }
 
         private void LisaToode_Click(object sender, RoutedEventArgs e)
@@ -42,6 +50,26 @@ namespace Kassa___ryhmat66
         private void TootedListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Ostukorvi_Click(object sender, RoutedEventArgs e)
+        {
+            if (TootedListBox.SelectedItem != null)
+            {
+                string text = System.Environment.NewLine + "Toote nimi: " + TooteNimi.Text + " Toote hind: " + TooteHind.Text + "€ Toote kogus: 1";
+                File.AppendAllText(path, text);
+                int ToodeteKoguHind = int.Parse(TooteHind.Text);
+                int Summa = Algmaksumus += ToodeteKoguHind;
+                string KoguSumma = System.Environment.NewLine + "Kogu summa on: " + Summa + "€";
+                File.AppendAllText(path, KoguSumma);
+            }
+        }
+
+        private void Vaata_Click(object sender, RoutedEventArgs e)
+        {
+            Process p = new Process();
+            Process.Start(@"..\..\..\kassa.txt");
+            p.Close();
         }
     }
 }

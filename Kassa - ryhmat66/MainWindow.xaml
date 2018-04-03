@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="423.544" Width="619.811">
     <Grid Margin="10">
-        <ListBox Name="TootedListBox" HorizontalAlignment="Left" Width="348" SelectionMode="Multiple" Margin="0,20,0,0">
+        <ListBox Name="TootedListBox" HorizontalAlignment="Left" Width="348" SelectionMode="Single" Margin="0,20,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,2">
@@ -34,5 +34,16 @@
         <Label x:Name="label2" Content="Toote kogus/100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,-6,0,0" Width="100"/>
         <Label x:Name="label3" Content="Kogus" HorizontalAlignment="Left" Margin="250,-6,0,0" VerticalAlignment="Top" Width="50"/>
         <Label x:Name="label4" Content="Hind" HorizontalAlignment="Left" Margin="300,-6,0,0" VerticalAlignment="Top" Width="48"/>
+        <Button x:Name="Ostukorvi" Content="Lisa see toode ostukorvi" HorizontalAlignment="Left" Margin="398,124,0,0" VerticalAlignment="Top" Width="159" Height="40" Click="Ostukorvi_Click"/>
+        <Button x:Name="Vaata" Content="Vaata ostukorvi" HorizontalAlignment="Left" Margin="399,207,0,0" VerticalAlignment="Top" Width="158" Height="24" RenderTransformOrigin="0.5,0.5" Click="Vaata_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.202"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
     </Grid>
 </Window>

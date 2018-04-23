@@ -26,16 +26,15 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Button x:Name="LisaToode" Content="Lisa toode" HorizontalAlignment="Left" Margin="398,67,0,0" VerticalAlignment="Top" Width="159" Height="24" Click="LisaToode_Click"/>
-        <TextBox x:Name="TooteNimi" HorizontalAlignment="Left" Height="20" Margin="366,20,0,0" TextWrapping="Wrap" Text="Toote nimi" VerticalAlignment="Top" Width="112"/>
-        <TextBox x:Name="TooteHind" HorizontalAlignment="Left" Height="20" Margin="483,20,0,0" TextWrapping="Wrap" Text="Hind" VerticalAlignment="Top" Width="35" RenderTransformOrigin="-0.337,0.485"/>
-        <TextBox x:Name="TooteKogus" HorizontalAlignment="Left" Height="20" Margin="523,20,0,0" TextWrapping="Wrap" Text="Kogus" VerticalAlignment="Top" Width="54"/>
+        <TextBox x:Name="TooteNimi" HorizontalAlignment="Left" Height="20" Margin="366,20,0,0" TextWrapping="Wrap" Text="Toote nimi" VerticalAlignment="Top" Width="112" GotFocus="TooteNimi_GotFocus" LostFocus="TooteNimi_LostFocus"/>
+        <TextBox x:Name="TooteHind" HorizontalAlignment="Left" Height="20" Margin="483,20,0,0" TextWrapping="Wrap" Text="Hind" VerticalAlignment="Top" Width="35" RenderTransformOrigin="-0.337,0.485" LostFocus="Hind_LostFocus" GotFocus="Hind_GotFocus"/>
         <Label x:Name="label" Content="Vajuta lisamiseks!" HorizontalAlignment="Left" Margin="427,40,0,0" VerticalAlignment="Top" Height="27" RenderTransformOrigin="0.558,0.184" Visibility="Visible"/>
         <Label x:Name="label1" Content="Toote nimetus" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.289,0.5" Width="150" Margin="0,-6,0,0"/>
         <Label x:Name="label2" Content="Toote kogus/100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,-6,0,0" Width="100"/>
         <Label x:Name="label3" Content="Kogus" HorizontalAlignment="Left" Margin="250,-6,0,0" VerticalAlignment="Top" Width="50"/>
         <Label x:Name="label4" Content="Hind" HorizontalAlignment="Left" Margin="300,-6,0,0" VerticalAlignment="Top" Width="48"/>
         <Button x:Name="Ostukorvi" Content="Lisa see toode ostukorvi" HorizontalAlignment="Left" Margin="398,124,0,0" VerticalAlignment="Top" Width="159" Height="40" Click="Ostukorvi_Click"/>
-        <Button x:Name="Vaata" Content="Vaata ostukorvi" HorizontalAlignment="Left" Margin="399,207,0,0" VerticalAlignment="Top" Width="158" Height="24" RenderTransformOrigin="0.5,0.5" Click="Vaata_Click">
+        <Button x:Name="Vaata" Content="Vaata ostukorvi" HorizontalAlignment="Left" Margin="399,236,0,0" VerticalAlignment="Top" Width="158" Height="24" RenderTransformOrigin="0.5,0.5" Click="Vaata_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -46,5 +45,7 @@
             </Button.RenderTransform>
         </Button>
         <Label x:Name="label5" Content="Ainult numbrid!" HorizontalAlignment="Left" Margin="483,0,-36,0" VerticalAlignment="Top" Height="30" Width="145"/>
+        <Button x:Name="Eemalda" Content="Eemalda toode ostukorvist" HorizontalAlignment="Left" Margin="398,180,0,0" VerticalAlignment="Top" Width="159" Click="Eemalda_Click" Height="35"/>
+        <TextBox x:Name="TooteKogus" HorizontalAlignment="Left" Height="19" Margin="523,20,0,0" TextWrapping="Wrap" Text="Kogus" VerticalAlignment="Top" Width="59" GotFocus="Kogus_GotFocus" LostFocus="Kogus_LostFocus"/>
     </Grid>
 </Window>

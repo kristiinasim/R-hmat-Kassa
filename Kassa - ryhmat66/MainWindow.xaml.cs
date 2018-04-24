@@ -71,7 +71,9 @@ namespace Kassa___ryhmat66
         {
             if (TootedListBox.SelectedItem != null)
             {
-                string text = System.Environment.NewLine + "Toote nimi: " + TooteNimi.Text + " Toote hind: " + TooteHind.Text + "€ Toote kogus: 1";
+                string NimiTootel = (TootedListBox.SelectedItem as LisaSeeToode).Nimi;
+                int Price = (TootedListBox.SelectedItem as LisaSeeToode).Hind;
+                string text = System.Environment.NewLine + "Toote nimi: " + NimiTootel + " Toote hind: " + Price + "€ Toote kogus: 1";
                 File.AppendAllText(path, text);
                 int ToodeteKoguHind = int.Parse(TooteHind.Text);
                 int Summa = Algmaksumus += ToodeteKoguHind;
@@ -100,7 +102,9 @@ namespace Kassa___ryhmat66
         {
             if (TootedListBox.SelectedItem != null)
             {
-                string text = System.Environment.NewLine + "Eemaldasite: " + TooteNimi.Text + " Toote hind: " + TooteHind.Text + "€ Toote kogus: 1";
+                string NimiTootel = (TootedListBox.SelectedItem as LisaSeeToode).Nimi;
+                int Price = (TootedListBox.SelectedItem as LisaSeeToode).Hind;
+                string text = System.Environment.NewLine + "Eemaldasite: " + NimiTootel + " Toote hind: " + Price + "€ Toote kogus: 1";
                 File.AppendAllText(path, text);
                 int ToodeteKoguHind = int.Parse(TooteHind.Text);
                 int Summa = Algmaksumus -= ToodeteKoguHind;

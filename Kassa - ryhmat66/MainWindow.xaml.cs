@@ -36,6 +36,7 @@ namespace Kassa___ryhmat66
             File.Create(path).Close();
 
         }
+       
 
         private void LisaToode_Click(object sender, RoutedEventArgs e)
         {
@@ -50,7 +51,11 @@ namespace Kassa___ryhmat66
                 string message = string.Format("Listis on nüüd: " + TooteNimi.Text + "; Hind: " + TooteHind.Text + " € Kogus: " + TooteKogus.Text);
                 MessageBox.Show(message);
                 TootedListBox.Items.Refresh();
+                //System.IO.File.WriteAllLines("save.txt", TooteNimi.Text);
+                //System.IO.File.WriteAllLines("save.txt", TooteHind.Text);
+                //System.IO.File.WriteAllLines("save.txt", TooteKogus.Text);
             }
+            //System.IO.File.WriteAllLines("save.txt", Lists.LisaSeeToode);
             else
             {
                 string errormessage = "Palun täida kõik lahtrid õigesti";

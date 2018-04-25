@@ -29,10 +29,11 @@ namespace Kassa___ryhmat66
         public int Algmaksumus = 0;
         List<LisaSeeToode> items = new List<LisaSeeToode>();
 
-        private string appTitle = "Kassa";
-        private string AppTooteNimi = "Toote nimi";
-        private string AppTooteHind = "Hind";
-        private string AppTooteKogus = "Kogus";
+        // Vaikimisi tekstid programmis kasutamiseks.
+        private string appTitle = "Kassa"; // Akna tiitel
+        private string AppTooteNimi = "Toote nimi"; // Toote nime lahtri vaikimisi tekst
+        private string AppTooteHind = "Hind"; // Toote hinna vaikimisi tekst
+        private string AppTooteKogus = "Kogus"; // Toote koguse vaikimisi tekst
 
         public MainWindow()
         {

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ArrayOfLisaSeeToode xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LisaSeeToode>
+    <Nimi>aaa</Nimi>
+    <Hind>1</Hind>
+    <Kogus>2</Kogus>
+  </LisaSeeToode>
+  <LisaSeeToode>
+    <Nimi>bbb</Nimi>
+    <Hind>1</Hind>
+    <Kogus>2</Kogus>
+  </LisaSeeToode>
+  <LisaSeeToode>
+    <Nimi>Jõhvikas</Nimi>
+    <Hind>4</Hind>
+    <Kogus>12</Kogus>
+  </LisaSeeToode>
+  <LisaSeeToode>
+    <Nimi>Kapsas</Nimi>
+    <Hind>4</Hind>
+    <Kogus>2</Kogus>
+  </LisaSeeToode>
+</ArrayOfLisaSeeToode>

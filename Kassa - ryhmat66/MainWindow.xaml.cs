@@ -1,6 +1,9 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,7 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.IO;
 
 namespace Kassa___ryhmat66
 {
@@ -21,89 +23,143 @@ namespace Kassa___ryhmat66
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static string path = @"C:\Users\Krizzie\Documents\GitHub\Ryhmat66-Kassa\Tooted.txt";
-
-
+        public string path;
+        public int Algmaksumus = 0;
         List<LisaSeeToode> items = new List<LisaSeeToode>();
         public MainWindow()
         {
             InitializeComponent();
-            //List<LisaSeeToode> items = new List<LisaSeeToode>();
-            
+            path = @"..\..\..\kassa.txt";
+            File.Delete(path);
+            string tekst = "Ostukorvis on: ";
+            File.AppendAllText(path, tekst);
+            path = @"..\..\..\list.txt";
+            File.Create(path).Close();
 
-            items.Add(new LisaSeeToode() { Nimi = "Piim", Hind = 45, Kogus = 10 });
-
-            items.Add(new LisaSeeToode() { Nimi = "Perenaise Sai", Hind = 80, Kogus = 12 });
-
-            items.Add(new LisaSeeToode() { Nimi = "Kange Walter", Hind = 100, Kogus = 5 });
-
-            items.Add(new LisaSeeToode() { Nimi = "Lotte Limonaad", Hind = 10, Kogus = 8 });
-
-            items.Add(new LisaSeeToode() { Nimi = "Maasikad", Hind = 40, Kogus = 30 });
-
-            TootedListBox.ItemsSource = items;
-
-            //TootedListBox.ItemsSource = items;
-
-            //items.Add(new LisaSeeToode() { Nimi = "aferg", Hind = 7, Kogus = 1 });
-            //TootedListBox.ItemsSource = items;
         }
 
         private void LisaToode_Click(object sender, RoutedEventArgs e)
         {
-
-            items.Add(new LisaSeeToode() { Nimi = TooteNimi.Text, Hind = int.Parse(TooteHind.Text), Kogus = int.Parse(TooteKogus.Text) });
-            TootedListBox.ItemsSource = items;
-            string message = string.Format("Listis on nüüd: " + TooteNimi.Text + "; Hind: " + TooteHind.Text + " € Kogus: " + TooteKogus.Text);
-
-            MessageBox.Show(message);
-
-            //List<LisaSeeToode> items = new List<LisaSeeToode>();
-            //items.Add(new LisaSeeToode() { Nimi = TooteNimi.Text, Hind = int.Parse(TooteHind.Text), Kogus = int.Parse(TooteKogus.Text) });
-            //TootedListBox.ItemsSource = items;
+            int n=0;
+            bool HindIsNumeric = int.TryParse(TooteHind.Text, out n);
+            bool KogusIsNumeric = int.TryParse(TooteKogus.Text, out n);
+            if (TooteNimi.Text != null && TooteHind.Text != null && HindIsNumeric == true 
+                && TooteKogus.Text != null && KogusIsNumeric == true)
+            {
+                items.Add(new LisaSeeToode() { Nimi = TooteNimi.Text, Hind = int.Parse(TooteHind.Text), Kogus = int.Parse(TooteKogus.Text) });
+                TootedListBox.ItemsSource = items;
+                string message = string.Format("Listis on nüüd: " + TooteNimi.Text + "; Hind: " + TooteHind.Text + " € Kogus: " + TooteKogus.Text);
+                MessageBox.Show(message);
+                TootedListBox.Items.Refresh();
+            }
+            else
+            {
+                string errormessage = "Palun täida kõik lahtrid õigesti";
+                MessageBox.Show(errormessage);
+            }
+                
 
         }
 
+       
 
         private void TootedListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void TootedListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        private void Ostukorvi_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-         
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-
-                if (TootedListBox.SelectedItems != null)
-                {
-                    foreach (var item in TootedListBox.SelectedItems)
-                    {
-                    var text = TootedListBox.SelectedValue.ToString();
-                    File.AppendAllText(path, text);
-                    
-                }
-              
-            }
-            }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            if (TootedListBox.SelectedItems != null)
+            if (TootedListBox.SelectedItem != null)
             {
-                foreach (var item in TootedListBox.SelectedItems)
-                {
-                    var text = TootedListBox.SelectedValue.ToString();
-                    File.AppendAllText(path, text);
-                    //File.AppendAllText(path, TooteNimi.Text);
-
-                }
-
+                string NimiTootel = (TootedListBox.SelectedItem as LisaSeeToode).Nimi;
+                int Price = (TootedListBox.SelectedItem as LisaSeeToode).Hind;
+                string text = System.Environment.NewLine + "Toote nimi: " + NimiTootel + " Toote hind: " + Price + "€ Toote kogus: 1";
+                File.AppendAllText(path, text);
+                int ToodeteKoguHind = int.Parse(TooteHind.Text);
+                int Summa = Algmaksumus += ToodeteKoguHind;
+                string KoguSumma = System.Environment.NewLine + "Kogu summa on: " + Summa + "€";
+                File.AppendAllText(path, KoguSumma);
+                MessageBox.Show("Toode on lisatud ostukorvi!");
+            } else
+            {
+                MessageBox.Show(
+                    "Vali toode enne kui lisad ostukorvi",
+                    "Ostukorvi viga!",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                    );
             }
         }
+
+        private void Vaata_Click(object sender, RoutedEventArgs e)
+        {
+            Process p = new Process();
+            Process.Start(path);
+            p.Close();
+        }
+
+        private void Eemalda_Click(object sender, RoutedEventArgs e)
+        {
+            if (TootedListBox.SelectedItem != null)
+            {
+                string NimiTootel = (TootedListBox.SelectedItem as LisaSeeToode).Nimi;
+                int Price = (TootedListBox.SelectedItem as LisaSeeToode).Hind;
+                string text = System.Environment.NewLine + "Eemaldasite: " + NimiTootel + " Toote hind: " + Price + "€ Toote kogus: 1";
+                File.AppendAllText(path, text);
+                int ToodeteKoguHind = int.Parse(TooteHind.Text);
+                int Summa = Algmaksumus -= ToodeteKoguHind;
+                string KoguSumma = System.Environment.NewLine + "Kogu summa on: " + Summa + "€";
+                File.AppendAllText(path, KoguSumma);
+                MessageBox.Show("Toode on eemaldatud ostukorvist!");
+            } else
+            {
+                MessageBox.Show(
+                    "Valige toode, mida soovite eemaldada!",
+                    "!!!",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                    );
+            }
+        }
+
+        private void TooteNimi_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if(TooteNimi.Text == "Toote nimi")
+                TooteNimi.Text = "";
+        }
+
+        private void TooteNimi_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TooteNimi.Text == "")
+                TooteNimi.Text = "Toote nimi";
+        }
+
+        
+
+        private void Hind_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TooteHind.Text == "")
+                TooteHind.Text = "Hind";
+        }
+
+        private void Hind_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TooteHind.Text == "Hind")
+                TooteHind.Text = "";
+        }
+        private void Kogus_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TooteKogus.Text == "Kogus")
+                TooteKogus.Text = "";
+        }
+
+        private void Kogus_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TooteKogus.Text == "")
+                TooteKogus.Text = "Kogus";
+        }
+
     }
 }
+

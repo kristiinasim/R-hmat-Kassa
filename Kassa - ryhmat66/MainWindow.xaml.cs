@@ -278,5 +278,18 @@ namespace Kassa___ryhmat66
             }
             MessageBox.Show("Täname et kasutasite meie programmi!\nPeatse taasnägemiseni!", appTitle, MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = TootedListBox.SelectedIndex;
+            failLaoseis.Remove(selected);
+
+            TootedListBox.Items.Refresh();
+            //if (TootedListBox.SelectedItem != null)
+            //{
+            //    TootedListBox.Items.Remove(TootedListBox.SelectedItems[0]);
+            //}
+
+        }
     }
 }

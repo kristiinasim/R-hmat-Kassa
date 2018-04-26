@@ -47,5 +47,6 @@
         <Label x:Name="label5" Content="Ainult numbrid!" HorizontalAlignment="Left" Margin="483,0,-36,0" VerticalAlignment="Top" Height="30" Width="145"/>
         <Button x:Name="Eemalda" Content="Eemalda toode ostukorvist" HorizontalAlignment="Left" Margin="398,180,0,0" VerticalAlignment="Top" Width="159" Click="Eemalda_Click" Height="35"/>
         <TextBox x:Name="TooteKogus" HorizontalAlignment="Left" Height="19" Margin="523,20,0,0" TextWrapping="Wrap" Text="Kogus" VerticalAlignment="Top" Width="59" GotFocus="Kogus_GotFocus" LostFocus="Kogus_LostFocus" TabIndex="3"/>
+        <Button Content="Eemalda toode listist" HorizontalAlignment="Left" Height="22" Margin="398,280,0,0" VerticalAlignment="Top" Width="159" Click="Button_Click"/>
     </Grid>
 </Window>

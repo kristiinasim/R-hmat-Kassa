@@ -281,10 +281,12 @@ namespace Kassa___ryhmat66
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var selected = TootedListBox.SelectedIndex;
-            failLaoseis.Remove(selected);
-
-            TootedListBox.Items.Refresh();
+            //XmlNode selectednode = ((Button)sender).DataContext as XmlNode;
+            //X(selectednode);
+            //var selected = TootedListBox.SelectedIndex;
+            //failLaoseis.Remove(selected);
+            //Extensions.Remove
+            //TootedListBox.Items.Refresh();
             //if (TootedListBox.SelectedItem != null)
             //{
             //    TootedListBox.Items.Remove(TootedListBox.SelectedItems[0]);
